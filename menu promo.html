@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>B A S C O</title>
+    <link rel="icon" href="/img/logo basco 1.png" type="image/x-icon" />
+    <meta
+      name="description"
+      content="Website coffee shop minimalis & artistik — menu, galeri, lokasi, kontak."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/menu/style-menu.css" />
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="logo">
+            <a href="index.html"><img src="img/logo basco 1.png" alt="" style="width: 35px"/></a>
+                    </div>
+          <div>
+            <div style="font-size: 20px ; font-family:'Times New Roman', Times, serif;">B A S C O</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 2px">
+              #startwithBasco
+            </div>
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="gallery.html">Galeri</a></li>
+                   
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </nav>
+
+        <button
+          class="menu-toggle"
+          aria-label="buka menu"
+          onclick="openMobile()"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="home-menu" class="">
+        <div class="hero-content fade-up">
+          <h1>Basco Student Coffee Club</h1>
+
+          <div
+            style="
+              margin-top: 22px;
+              color: var(--muted);
+              font-size: 14px;
+              display: flex;
+              gap: 16px;
+              flex-wrap: wrap;
+              justify-content: center;
+            "
+          >
+            <div>⏰ 09.00–22.45</div>
+            <div>📍 Jl. Halim Perdanakusuma No.40 Bangkalan</div>
+            <div>📞 082232493114</div>
+          </div>
+        </div>
+      </section>
+<br>
+<!--gambar promo-->
+  <div class="container_gambarpromo">
+  <img src="img/gift voucher pelajar.png" alt="Contoh Gambar">
+</div>  
+
+
+      <!--Menu-->
+<section>
+        <div class="section-title" style="text-align: center; font-size: 20px">
+          <div>
+            <h2>Menu Promo Buat Kamu Yang Kece Abis</h2>
+            <div class="muted">
+              
+            </div>
+          </div>
+        </div>
+
+        <!--Espresso-->
+        <div class="grid menu-grid">
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/promo.png" alt="Bromilk" />
+            </div>
+            <div class="body">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <h3 style="margin: 0">Es Cafe Latte</h3>
+                <div class="price">13k</div>
+              </div>
+              <p class="muted">*harga setelah diskon 30%</p>
+            </div>
+          </article>
+
+          <!--Bromilk-->
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/promo.png" alt="Bromilk" />
+            </div>
+            <div class="body">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <h3 style="margin: 0">Es Banana Latte</h3>
+                <div class="price">13k</div>
+              </div>
+              <p class="muted">*harga setelah diskon 30%</p>
+            </div>
+          </article>
+
+          <!--Americano-->
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/promo.png" alt="Americano" />
+            </div>
+            <div class="body">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <h3 style="margin: 0">Es Hazelnut Latte</h3>
+                <div class="price">13k</div>
+              </div>
+              <p class="muted">*harga setelah diskon 30%</p>
+            </div>
+          </article>
+
+          <!--Vdrip-->
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/promo.png" alt="Matcha" />
+            </div>
+            <div class="body">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <h3 style="margin: 0">Es Rum Latte</h3>
+                <div class="price">13k</div>
+              </div>
+              <p class="muted">*harga setelah diskon 30%</p>
+            </div>
+          </article>
+
+          <!--Cafelatte-->
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/promo.png" alt="Matcha" />
+            </div>
+            <div class="body">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <h3 style="margin: 0">Es Caramel Latte</h3>
+                <div class="price">13k</div>
+              </div>
+              <p class="muted">*harga setelah diskon 30%</p>
+            </div>
+          </article>
+
+          <!--Amffogato-->
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/promo.png" alt="Matcha" />
+            </div>
+            <div class="body">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <h3 style="margin: 0">Es Palm Latte</h3>
+                <div class="price">13k</div>
+              </div>
+              <p class="muted">*harga setelah diskon 30%</p>
+            </div>
+          </article>
+
+          <!--Cappucino-->
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/redvelved.png" alt="Matcha" />
+            </div>
+            <div class="body">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <h3 style="margin: 0">Ice Red Velvet</h3>
+                <div class="price">11k</div>
+              </div>
+              <p class="muted">*harga setelah diskon 30%</p>
+            </div>
+          </article>
+
+          <!--Mocha-->
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/greentea.png" alt="Matcha" />
+            </div>
+            <div class="body">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <h3 style="margin: 0">Ice Greentea</h3>
+                <div class="price">11k</div>
+              </div>
+              <p class="muted">*harga setelah diskon 30%</p>
+            </div>
+
+            
+          </article>
+</section>
+
+<!--Latte Squad-->
+<section>
+        <div class="grid menu-grid">
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/bubblegum.png" alt="Espresso" />
+            </div>
+            <div class="body">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <h3 style="margin: 0">Ice Bubble Gum</h3>
+                <div class="price">11k</div>
+              </div>
+              <p class="muted">*harga setelah diskon 30%</p>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/thai tea.png" alt="Bromilk" />
+            </div>
+            <div class="body">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <h3 style="margin: 0">Ice Thai Tea</h3>
+                <div class="price">11k</div>
+              </div>
+              <p class="muted">*harga setelah diskon 30%</p>
+            </div>
+          </article>
+</section>
+
+<section id="kontak">
+    <div class="cta-box">
+    <h2>Basco's Family</h2>
+    <p style="font-size: 15px;">Nantikan Promo dan Free Merchandise dari BASCO Coffee.</strong></p>
+    <p style="font-size: 15px;">Klik Tombol dibawah ini</strong></p>
+  
+
+    <!-- Tombol CTA -->
+  <a href="Memberhsip.html" target="_blank" class="membership">Bergabung Bersama Kami</a>
+  </div>
+</section>
+
+
+      <!--Footer-->
+       <footer style="text-align: center;">
+    <p>&copy; 2025 Basco Coffee. All rights reserved.</p>
+  </footer>
+    </main>
+
+
+    
+        <!-- mobile nav overlay -->
+    <div class="mobile-nav" id="mobileNav" onclick="closeMobile()">
+      <div class="panel" onclick="event.stopPropagation()">
+        <nav>
+          <ul
+            style="
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+            "
+          >
+            <li><a href="index.html" onclick="closeMobile()">Home</a></li>
+            <li><a href="menu.html" onclick="closeMobile()">Menu</a></li>
+            <li><a href="team.html" onclick="closeMobile()">Team</a></li>
+            <li><a href="gallery.html" onclick="closeMobile()">Galeri</a></li>
+            <li><a href="kontak.html" onclick="closeMobile()">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <script>
+      // simple reveal for items with .fade-up
+      window.addEventListener("load", () => {
+        document.querySelectorAll(".fade-up").forEach((el, i) => {
+          el.style.animationDelay = i * 0.08 + "s";
+        });
+      });
+    </script>
+  </body>
+</html>

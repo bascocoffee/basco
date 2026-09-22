@@ -1,0 +1,978 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Menu - B A S C O</title>
+    <link rel="icon" href="img/logo basco 1.png" type="image/x-icon" />
+    <meta
+      name="description"
+      content="Daftar Menu BASCO - Bangkalan Specialty Coffee."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- VARIABEL TEMA (Sesuai Index) --- */
+      :root {
+        --bg-primary: #fdfbf7;
+        --bg-secondary: #f4ede2;
+        --text-main: #2c2520;
+        --text-muted: #6e645e;
+        --accent: #8c6239;
+        --accent-hover: #6f4e2c;
+        --accent-light: #e8ded1;
+        --white: #ffffff;
+        --shadow: 0 10px 30px rgba(140, 98, 57, 0.06);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-main);
+        line-height: 1.6;
+      }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* --- HEADER (Sesuai Index) --- */
+      header {
+        background-color: rgba(253, 251, 247, 0.85);
+        backdrop-filter: blur(12px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(140, 98, 57, 0.08);
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand-title {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--accent);
+      }
+      .brand-sub {
+        font-size: 11px;
+        color: var(--text-muted);
+        letter-spacing: 1px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 32px;
+      }
+      nav ul a {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text-main);
+        text-decoration: none;
+        position: relative;
+        transition: var(--transition);
+      }
+      nav ul a:hover,
+      nav ul a.active {
+        color: var(--accent);
+      }
+      nav ul a.active::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--accent);
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      /* --- HERO MENU --- */
+      main {
+        margin-top: 80px;
+        padding-bottom: 60px;
+      }
+      .hero-menu {
+        text-align: center;
+        padding: 80px 0 40px;
+      }
+      .hero-menu h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 48px;
+        margin-bottom: 16px;
+        color: var(--text-main);
+      }
+      .info-bar {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+      .info-item {
+        background: var(--bg-secondary);
+        padding: 6px 16px;
+        border-radius: 30px;
+      }
+
+      /* --- SECTION & TITLES --- */
+      section {
+        padding: 40px 0;
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .section-title h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+      .section-title .muted {
+        color: var(--text-muted);
+        font-size: 15px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* --- MENU GRID & CARDS --- */
+      .grid.menu-grid {
+        display: flex; /* Ubah dari grid ke flex */
+        flex-wrap: wrap; /* Agar bisa turun ke bawah jika layar sempit */
+        justify-content: center; /* Ini kunci utamanya untuk membuat center */
+        gap: 24px;
+      }
+
+      .grid.menu-grid .card {
+        width: 260px; /* Berikan lebar tetap agar ukurannya konsisten */
+        flex: 0 0 260px; /* Mencegah card melebar/mengecil secara paksa */
+      }
+
+      .card {
+        background: var(--white);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        border: 1px solid rgba(140, 98, 57, 0.04);
+        display: flex;
+        flex-direction: column;
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(140, 98, 57, 0.12);
+      }
+      .media img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .card-body {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 8px;
+      }
+      .card-header h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        color: var(--text-main);
+      }
+      .price {
+        font-weight: 700;
+        color: var(--accent);
+        background: var(--bg-secondary);
+        padding: 2px 10px;
+        border-radius: 12px;
+        font-size: 14px;
+      }
+      .card-body .muted {
+        font-size: 13px;
+        color: var(--text-muted);
+        margin-top: auto;
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        padding: 40px 0;
+        border-top: 1px solid var(--accent-light);
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 14px;
+      }
+
+      /* --- MOBILE NAVIGATION PANEL --- */
+      .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+        display: none;
+        justify-content: flex-end;
+      }
+      .mobile-nav .panel {
+        background: var(--bg-primary);
+        width: 280px;
+        height: 100%;
+        padding: 40px 24px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* --- ANIMATION --- */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.6s forwards;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .hero-menu h1 {
+          font-size: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="logo">
+            <a href="index.html"
+              ><img
+                src="img/logo basco 1.png"
+                alt="Basco Logo"
+                style="width: 35px"
+            /></a>
+          </div>
+          <div>
+            <div class="brand-title">B A S C O</div>
+            <div class="brand-sub">#startwithBasco</div>
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html" class="active">Menu</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="gallery.html">Galeri</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </nav>
+
+        <button class="menu-toggle" onclick="openMobile()">☰</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero-menu fade-up">
+        <h1>Our Menu</h1>
+        <div class="info-bar">
+          <div class="info-item">⏰ 09.00–23.00</div>
+          <div class="info-item">
+            📍 Jl. Halim Perdanakusuma No.40 Bangkalan
+          </div>
+          <div class="info-item">📞 082232493114</div>
+        </div>
+      </section>
+
+      <section id="basic">
+        <div class="section-title fade-up">
+          <h2>Basic</h2>
+          <div class="muted">
+            Klasik dan seasonal, cocok untuk kamu yang suka kopi yang
+            berkarakter
+          </div>
+        </div>
+        <div class="grid menu-grid">
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/espresso.png" alt="Espresso" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Espresso</h3>
+                <span class="price">22k</span>
+              </div>
+              <p class="muted">Blend/Single Origin/Robusta</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/bromilk.png" alt="Bromilk" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Bromilk</h3>
+                <span class="price">15k</span>
+              </div>
+              <p class="muted">Espresso + skm</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/americano.png" alt="Americano" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Americano</h3>
+                <span class="price">16k</span>
+              </div>
+              <p class="muted">Espresso + air panas/dingin</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/vietnam drip.png" alt="Vietnam Drip" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Vietnam Drip</h3>
+                <span class="price">15k</span>
+              </div>
+              <p class="muted">Coffee + skm + air panas</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/cafe latte.png" alt="Cafe Latte" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Cafe Latte</h3>
+                <span class="price">17k</span>
+              </div>
+              <p class="muted">Espresso + susu</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/affogato.png" alt="affogato" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Affogato</h3>
+                <span class="price">18k</span>
+              </div>
+              <p class="muted">Espresso + Vanila ice cream</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/cappucino.png" alt="cappucino" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Cappucino</h3>
+                <span class="price">15k</span>
+              </div>
+              <p class="muted">Espresso + susu steam</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/mochacino.png" alt="mochacino" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Mochacino</h3>
+                <span class="price">19k</span>
+              </div>
+              <p class="muted">Espresso + cokelat + susu</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="signature">
+        <div class="section-title fade-up">
+          <h2>Basco Trilogy - Signature</h2>
+          <div class="muted">
+            Minuman spesial dari Basco, salah satu minuman andalan kami, wajib
+            dicoba!
+          </div>
+        </div>
+        <div class="grid menu-grid">
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/coldbrew.png" alt="Cold Brew" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Cold Brew</h3>
+                <span class="price">18k</span>
+              </div>
+              <p class="muted">Arabica</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/montblanc.png" alt="Montblanc" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Montblanc</h3>
+                <span class="price">23k</span>
+              </div>
+              <p class="muted">Bold, Citrus and Creamy</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/tiramisu.png" alt="Montblanc" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Tiramisu</h3>
+                <span class="price">20k</span>
+              </div>
+              <p class="muted">Bold, Sweet and Creamy</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="signature">
+        <div class="section-title fade-up">
+          <h2>Signature</h2>
+          <div class="muted">Minuman kopi spesial dengan racikan eksklusif</div>
+        </div>
+        <div class="grid menu-grid">
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/peacepop.png" alt="peacepop" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Peace Pop</h3>
+                <span class="price">18k</span>
+              </div>
+              <p class="muted">Espresso + peach + soda</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/moonlight.png" alt="moonlight" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Moonlight</h3>
+                <span class="price">18k</span>
+              </div>
+              <p class="muted">Espresso + strawberry + vanilla + soda</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/vanilla shaky.png" alt="vanillashaky" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Vanilla Shaky</h3>
+                <span class="price">20k</span>
+              </div>
+              <p class="muted">Vanilla Ice Cream + susu ( kids recomended )</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="latte-squad">
+        <div class="section-title fade-up">
+          <h2>Signature</h2>
+          <div class="muted">Klasik, pilihan latte dengan syrup</div>
+        </div>
+        <div class="grid menu-grid">
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/greentaso.png" alt="greentaso" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Greentaso</h3>
+                <span class="price">18k</span>
+              </div>
+              <p class="muted">Espresso + greentea</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/banana.png" alt="Banana" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Banana</h3>
+                <span class="price">18k</span>
+              </div>
+              <p class="muted">Espresso + banana</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/hazelnut.png" alt="hazelnut" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Hazelnut</h3>
+                <span class="price">18k</span>
+              </div>
+              <p class="muted">Espresso + hazelnut</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/cafe latte.png" alt="rum" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Rum Halal</h3>
+                <span class="price">18k</span>
+              </div>
+              <p class="muted">Espresso + rum (Halal)</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/palm.png" alt="palm" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Palm Sugar</h3>
+                <span class="price">18k</span>
+              </div>
+              <p class="muted">Espresso + gula aren</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/vanilla.png" alt="vanilla" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Vanilla</h3>
+                <span class="price">18k</span>
+              </div>
+              <p class="muted">Espresso + vanilla</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/cafe latte.png" alt="caramel" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Caramel</h3>
+                <span class="price">18k</span>
+              </div>
+              <p class="muted">Espresso + caramel</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="traditional">
+        <div class="section-title fade-up">
+          <h2>Traditional</h2>
+          <div class="muted">Klasik dan Menyehatkan</div>
+        </div>
+        <div class="grid menu-grid">
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/tubruk.png" alt="tubruk" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Tubruk</h3>
+                <span class="price">12k</span>
+              </div>
+              <p class="muted">Coffee + air panas</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/tubruk susu.png" alt="tubruksusu" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Tubruk Susu</h3>
+                <span class="price">14k</span>
+              </div>
+              <p class="muted">Coffee + susu panas</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/basco-bg.png" alt="wedang uwuh" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Wedang Uwuh</h3>
+                <span class="price">12k</span>
+              </div>
+              <p class="muted">Rempah + air panas</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/basco-bg.png" alt="Peppermint Tea" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Peppermint Tea</h3>
+                <span class="price">14k</span>
+              </div>
+              <p class="muted">Teh Peppermint + air panas</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="filtercoffee">
+        <div class="section-title fade-up">
+          <h2>Filter Coffee</h2>
+          <div class="muted">Kopi dengan karakter rasa yang khas</div>
+        </div>
+        <div class="grid menu-grid">
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/basco-bg.png" alt="v60" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>V60</h3>
+                <span class="price">23k</span>
+              </div>
+              <p class="muted">Single Origin</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/basco-bg.png" alt="v60" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>V60 Japanese</h3>
+                <span class="price">23k</span>
+              </div>
+              <p class="muted">Single Origin</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="tea">
+        <div class="section-title fade-up">
+          <h2>Tea</h2>
+          <div class="muted">
+            Minuman teh dengan aroma alami yang menenangkan.
+          </div>
+        </div>
+        <div class="grid menu-grid">
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/peachty.png" alt="v60" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Peachty</h3>
+                <span class="price">15k</span>
+              </div>
+              <p class="muted">Tea + Peach</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/peachty.png" alt="v60" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Litchi Tea</h3>
+                <span class="price">15k</span>
+              </div>
+              <p class="muted">Tea + Lecy</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/paradise.png" alt="v60" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Paradise</h3>
+                <span class="price">15k</span>
+              </div>
+              <p class="muted">Tea + Lecy + Peach</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="flavours">
+        <div class="section-title fade-up">
+          <h2>Flavours</h2>
+          <div class="muted">Pilihan minuman non kopi</div>
+        </div>
+        <div class="grid menu-grid">
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/choco.png" alt="v60" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Chocolate</h3>
+                <span class="price">17k</span>
+              </div>
+              <p class="muted"></p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/greentea.png" alt="v60" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Greentea</h3>
+                <span class="price">15k</span>
+              </div>
+              <p class="muted"></p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/redvelved.png" alt="v60" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Red Velved</h3>
+                <span class="price">15k</span>
+              </div>
+              <p class="muted"></p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/thai tea.png" alt="v60" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Thai Tea</h3>
+                <span class="price">15k</span>
+              </div>
+              <p class="muted"></p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/bubblegum.png" alt="v60" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Bubble Gum</h3>
+                <span class="price">15k</span>
+              </div>
+              <p class="muted"></p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="food">
+        <div class="section-title fade-up">
+          <h2>Food & Snacks</h2>
+          <div class="muted">
+            Pilihan makanan dan cemilan untuk menemani harimu
+          </div>
+        </div>
+        <div class="grid menu-grid">
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/mie new.png" alt="Mie Basco" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Mie Basco</h3>
+                <span class="price">12k</span>
+              </div>
+              <p class="muted">Team Pedas / non pedas</p>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/siomay ayam 1.png" alt="Dimsum" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Dimsum Siomay Ayam</h3>
+                <span class="price">13k</span>
+              </div>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/beef new.png" alt="Dimsum" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Dimsum Siomay Beef</h3>
+                <span class="price">15k</span>
+              </div>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/singkong new.png" alt="Dimsum" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Singkong</h3>
+                <span class="price">13k</span>
+              </div>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/bola rambutan new.png" alt="Dimsum" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Bola Rambutan</h3>
+                <span class="price">13k</span>
+              </div>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/kentang new.png" alt="Dimsum" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>French Fries</h3>
+                <span class="price">13k</span>
+              </div>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/tahu walik new.png" alt="Dimsum" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Tahu Wali</h3>
+                <span class="price">13k</span>
+              </div>
+            </div>
+          </article>
+          <article class="card fade-up">
+            <div class="media">
+              <img src="/img/sewel new.png" alt="Dimsum" />
+            </div>
+            <div class="card-body">
+              <div class="card-header">
+                <h3>Sewel</h3>
+                <span class="price">13k</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        <p>&copy; 2025 Basco Coffee. All rights reserved.</p>
+      </footer>
+    </main>
+
+    <div class="mobile-nav" id="mobileNav" onclick="closeMobile()">
+      <div class="panel" onclick="event.stopPropagation()">
+        <nav style="display: block">
+          <ul
+            style="
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+            "
+          >
+            <li><a href="index.html" onclick="closeMobile()">Home</a></li>
+            <li><a href="menu.html" onclick="closeMobile()">Menu</a></li>
+            <li><a href="team.html" onclick="closeMobile()">Team</a></li>
+            <li><a href="gallery.html" onclick="closeMobile()">Galeri</a></li>
+            <li><a href="kontak.html" onclick="closeMobile()">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <script>
+      function openMobile() {
+        document.getElementById("mobileNav").style.display = "flex";
+      }
+      function closeMobile() {
+        document.getElementById("mobileNav").style.display = "none";
+      }
+
+      window.addEventListener("load", () => {
+        document.querySelectorAll(".fade-up").forEach((el, i) => {
+          el.style.animationDelay = i * 0.1 + "s";
+        });
+      });
+    </script>
+  </body>
+</html>

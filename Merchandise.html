@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B A S C O</title>
+    <link rel="icon" href="img/logo basco 1.png" type="image/x-icon" />
+    <style>
+      :root {
+        --cream: #f5f5dc;
+        --light-cream: #faf9f6;
+        --avocado: #047349;
+        --dark-avocado: #4a5d23;
+        --text-color: #2d3436;
+        --white: #ffffff;
+        --red: #ff7675;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+      body {
+        background-color: var(--cream);
+        color: var(--text-color);
+      }
+
+      /* Navigation */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 8%;
+        background: var(--white);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      .logo {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--avocado);
+      }
+      .cart-icon {
+        position: relative;
+        font-weight: bold;
+      }
+      .cart-count {
+        position: absolute;
+        top: -10px;
+        right: -15px;
+        background: var(--red);
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+      }
+
+      /* Hero */
+      .hero {
+        text-align: center;
+        padding: 60px 20px;
+        background: var(--avocado);
+        color: var(--white);
+      }
+
+      /* Main Layout */
+      .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+      .products {
+        flex: 2;
+        min-width: 300px;
+      }
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .product-card {
+        background: var(--white);
+        padding: 15px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+      .product-image {
+        height: 150px;
+        background: var(--light-cream);
+        border-radius: 8px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+      }
+      .price {
+        font-weight: bold;
+        color: var(--avocado);
+        display: block;
+        margin: 10px 0;
+      }
+
+      .btn-add {
+        background: var(--avocado);
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-weight: bold;
+      }
+
+      /* Cart Sidebar & Form */
+      .cart-sidebar {
+        flex: 1;
+        min-width: 300px;
+        background: var(--white);
+        padding: 20px;
+        border-radius: 12px;
+        height: fit-content;
+        border: 2px solid var(--avocado);
+        position: sticky;
+        top: 100px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: var(--dark-avocado);
+      }
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        outline: none;
+      }
+      .form-group input:focus {
+        border-color: var(--avocado);
+        box-shadow: 0 0 5px rgba(112, 130, 56, 0.3);
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 0.9rem;
+      }
+      .btn-remove {
+        background: var(--red);
+        color: white;
+        border: none;
+        padding: 2px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      .cart-total {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .btn-order {
+        background: #25d366;
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      /* Notifikasi */
+      #notification-container {
+        position: fixed;
+        top: 90px;
+        right: 20px;
+        z-index: 2000;
+      }
+      .toast {
+        background: var(--dark-avocado);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        animation:
+          slideIn 0.3s ease-out,
+          fadeOut 0.5s 2.5s forwards;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      @keyframes slideIn {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      @keyframes fadeOut {
+        to {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="notification-container"></div>
+
+    <nav>
+      <div style="display: inline-block;">
+        <img src="logo basco 1.png" alt="" style="width: 35px; margin-right: 10px; margin-top: 5px;" /></div>
+        <div class="logo">BASCO MERCHANDISE</div>
+      </div>
+      <div class="cart-icon">
+        🛒 Keranjang <span class="cart-count" id="cart-count">0</span>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <h1>"Freshly Brewed Style"</h1>
+      <br>
+      <p>
+        Koleksi merchandise resmi kami dirancang untuk menemani setiap tegukan
+        kopi pagimu.
+      </p>
+      <br>
+      <p>
+        Belanja 1 produk basco merchandise akan mendapatkan free 1 minuman atau makanan di Basco Coffee
+      </p>
+    </header>
+
+    <div class="container">
+      <section class="products">
+        <div class="product-grid">
+          <div class="product-card">
+            <div class="product-image">☕</div>
+            <h3>SOON</h3>
+            <span class="price">xxxxx</span>
+            <button
+              class="btn-add"
+              onclick="addToCart('SOON 1', 0)"
+            >
+              + Tambah
+            </button>
+          </div>
+          <div class="product-card">
+            <div class="product-image">👜</div>
+            <h3>SOON</h3>
+            <span class="price">xxxxx</span>
+            <button
+              class="btn-add"
+              onclick="addToCart('SOON 2', 0)"
+            >
+              + Tambah
+            </button>
+          </div>
+          <div class="product-card">
+            <div class="product-image">👕</div>
+            <h3>SOON</h3>
+            <span class="price">xxxxx</span>
+            <button class="btn-add" onclick="addToCart('SOON 3', 0)">
+              + Tambah
+            </button>
+          </div>
+          
+          <div class="product-card">
+            <div class="product-image">👕</div>
+            <h3>SOON</h3>
+            <span class="price">xxxxx</span>
+            <button class="btn-add" onclick="addToCart('SOON 4', 0)">
+              + Tambah
+            </button>
+          </div>
+          
+          
+        </div>
+      </section>
+
+      <aside class="cart-sidebar">
+        <div class="form-group">
+          <label for="buyer-name">Nama Pemesan:</label>
+          <input
+            type="text"
+            id="buyer-name"
+            placeholder="Masukkan nama Anda..."
+            required
+          />
+        </div>
+
+        <h3>Daftar Pesanan</h3>
+        <div id="cart-items-list">
+          <p style="color: #999; margin-top: 10px">Keranjang kosong.</p>
+        </div>
+
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="total-price">Rp 0</span>
+        </div>
+
+        <button class="btn-order" onclick="sendToWhatsApp()">
+          Kirim via WhatsApp
+        </button>
+      </aside>
+    </div>
+
+    <footer><p>&copy; 2025 BASCO Merchandise</p></footer>
+
+    <script>
+      let cart = [];
+      const whatsappNumber = "6282232493114"; // GANTI NOMOR WA ANDA DI SINI
+
+      function showNotification(message) {
+        const container = document.getElementById("notification-container");
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.innerHTML = `<span>✅</span> ${message}`;
+        container.appendChild(toast);
+        setTimeout(() => {
+          toast.remove();
+        }, 3000);
+      }
+
+      function addToCart(name, price) {
+        const item = cart.find((i) => i.name === name);
+        if (item) {
+          item.qty++;
+        } else {
+          cart.push({ name, price, qty: 1 });
+        }
+        showNotification(`${name} ditambahkan!`);
+        renderCart();
+      }
+
+      function removeFromCart(index) {
+        if (cart[index].qty > 1) {
+          cart[index].qty--;
+        } else {
+          cart.splice(index, 1);
+        }
+        renderCart();
+      }
+
+      function renderCart() {
+        const list = document.getElementById("cart-items-list");
+        const count = document.getElementById("cart-count");
+        const totalDisplay = document.getElementById("total-price");
+
+        list.innerHTML = "";
+        let total = 0;
+        let totalQty = 0;
+
+        cart.forEach((item, index) => {
+          total += item.price * item.qty;
+          totalQty += item.qty;
+          list.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.name} (x${item.qty})</span>
+                        <div>
+                            <span>Rp ${(item.price * item.qty).toLocaleString()}</span>
+                            <button class="btn-remove" onclick="removeFromCart(${index})">×</button>
+                        </div>
+                    </div>
+                `;
+        });
+
+        if (cart.length === 0)
+          list.innerHTML =
+            '<p style="color: #999; margin-top: 10px;">Keranjang kosong.</p>';
+        count.innerText = totalQty;
+        totalDisplay.innerText = `Rp ${total.toLocaleString()}`;
+      }
+
+      function sendToWhatsApp() {
+        const name = document.getElementById("buyer-name").value;
+
+        if (!name) {
+          alert("Mohon isi nama Anda terlebih dahulu!");
+          return;
+        }
+        if (cart.length === 0) {
+          alert("Keranjang masih kosong nih!");
+          return;
+        }
+
+        let message = `*PESANAN MERCHANDISE BASCO %26 COFFEE*%0A`;
+        message += `-----------------------------------%0A`;
+        message += `*Nama:* ${name}%0A%0A`;
+        message += `*Daftar Pesanan:*%0A`;
+
+        cart.forEach((item) => {
+          message += `- ${item.name} (x${item.qty}) : Rp ${(item.price * item.qty).toLocaleString()}%0A`;
+        });
+
+        let total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+        message += `%0A*TOTAL PEMBAYARAN: Rp ${total.toLocaleString()}*%0A`;
+        message += `-----------------------------------%0A`;
+        message += `Mohon instruksi selanjutnya untuk pembayaran.`;
+
+        window.open(
+          `https://wa.me/${whatsappNumber}?text=${message}`,
+          "_blank",
+        );
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+[14-Apr-2026 15:43:46 Asia/Jakarta] PHP Warning:  mysqli_connect(): (HY000/1044): Access denied for user 'bast6842_coba'@'localhost' to database 'bast6842_coba' in /home/bast6842/public_html/api/database.php on line 8
+[14-Apr-2026 15:43:47 Asia/Jakarta] PHP Warning:  mysqli_connect(): (HY000/1044): Access denied for user 'bast6842_coba'@'localhost' to database 'bast6842_coba' in /home/bast6842/public_html/api/database.php on line 8
+[14-Apr-2026 15:44:57 Asia/Jakarta] PHP Warning:  mysqli_connect(): (HY000/1044): Access denied for user 'bast6842_coba'@'localhost' to database 'coba' in /home/bast6842/public_html/api/database.php on line 8

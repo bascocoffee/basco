@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PPDB SMKN 1 Labang | Official</title>
+
+    <link rel="icon" href="img/logo SMK 1 Labang.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="PPDB.css" />
+  </head>
+  <body>
+    <div
+      class="container d-flex justify-content-center align-items-center min-vh-100"
+    >
+      <div class="casis card-form my-5" data-aos="fade-up">
+        <form name="DATA-PPDB-2025">
+          <div class="text-center mb-4">
+            <img
+              src="img/logo SMK 1 Labang.png"
+              alt="Logo SMK"
+              class="logo-img mb-3 zoom-effect"
+            />
+            <h1 class="h3 fw-bold text-biru">FORMULIR PENDAFTARAN</h1>
+            <h3 class="h6 text-secondary">SMK Negeri 1 Labang</h3>
+            <span class="badge badge-emas">Tahun Pelajaran 2025 - 2026</span>
+          </div>
+
+          <hr class="divider" />
+
+          <div
+            class="alert alert-ppdb d-none my-alert text-center shadow-sm mb-4"
+            role="alert"
+          ></div>
+
+          <div id="form-content">
+            <div class="section-title">I. IDENTITAS CALON SISWA</div>
+            <div class="mb-3">
+              <label class="label">Nama Lengkap</label>
+              <input
+                name="nama"
+                id="nama"
+                type="text"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="label">Alamat Lengkap</label>
+              <input name="alamat" type="text" class="form-control" required />
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="label">Nomor WhatsApp</label>
+                <input
+                  name="no handphone"
+                  id="hp"
+                  type="number"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="label">NPSN Sekolah</label>
+                <input
+                  name="npsn"
+                  type="number"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="label">Asal Sekolah</label>
+              <input
+                name="asal sekolah"
+                id="sekolah"
+                type="text"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="section-title">II. PILIHAN JURUSAN</div>
+            <div class="mb-3">
+              <select
+                class="form-select mb-3"
+                name="Pilihan Jurusan 1"
+                id="jurusan1"
+                required
+              >
+                <option disabled selected value="">
+                  -- Pilih Jurusan 1 --
+                </option>
+                <option value="Akuntansi">Akuntansi</option>
+                <option value="Teknik Elektronika Industri">
+                  Teknik Elektronika Industri
+                </option>
+                <option value="Teknik Komputer dan Jaringan">
+                  Teknik Komputer dan Jaringan
+                </option>
+                <option value="Rekayasa Perangkat Lunak">
+                  Rekayasa Perangkat Lunak
+                </option>
+                <option value="Teknik Bisnis dan Sepeda Motor">
+                  Teknik Bisnis dan Sepeda Motor
+                </option>
+                <option value="Teknik Kendaraan Ringan Otomotif">
+                  Teknik Kendaraan Ringan Otomotif
+                </option>
+              </select>
+
+              <select
+                class="form-select"
+                name="Pilihan Jurusan 2"
+                id="jurusan2"
+                required
+              >
+                <option disabled selected value="">
+                  -- Pilih Jurusan 2 --
+                </option>
+                <option value="Akuntansi">Akuntansi</option>
+                <option value="Teknik Elektronika Industri">
+                  Teknik Elektronika Industri
+                </option>
+                <option value="Teknik Komputer dan Jaringan">
+                  Teknik Komputer dan Jaringan
+                </option>
+                <option value="Rekayasa Perangkat Lunak">
+                  Rekayasa Perangkat Lunak
+                </option>
+                <option value="Teknik Bisnis dan Sepeda Motor">
+                  Teknik Bisnis dan Sepeda Motor
+                </option>
+                <option value="Teknik Kendaraan Ringan Otomotif">
+                  Teknik Kendaraan Ringan Otomotif
+                </option>
+              </select>
+            </div>
+
+            <div class="d-grid gap-2 mt-4">
+              <button type="submit" class="btn btn-biru btn-kirim py-3 shadow">
+                SUBMIT PENDAFTARAN
+              </button>
+              <button
+                class="btn btn-biru btn-loading d-none py-3"
+                type="button"
+                disabled
+              >
+                <span class="spinner-border spinner-border-sm"></span> Memproses
+                Data...
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+
+      // CONFIGURATION
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxlSB4957JYH1ytAs7MlH2hQGJosCufkN9baqFHF9k_JC-w21f0LAu1WYXOyUbvqOhy3w/exec";
+      const googleFormURL = "https://forms.gle/WRYSQHJUYdbLucrR9";
+      const waAdmin = "6282232493114";
+
+      const form = document.forms["DATA-PPDB-2025"];
+      const select1 = document.getElementById("jurusan1");
+      const select2 = document.getElementById("jurusan2");
+
+      function updateOptions() {
+        const val1 = select1.value;
+        const val2 = select2.value;
+
+        // Disable pilihan yang sama di select lainnya
+        Array.from(select2.options).forEach((opt) => {
+          opt.disabled = opt.value === val1 && opt.value !== "";
+        });
+        Array.from(select1.options).forEach((opt) => {
+          opt.disabled = opt.value === val2 && opt.value !== "";
+        });
+      }
+
+      select1.addEventListener("change", updateOptions);
+      select2.addEventListener("change", updateOptions);
+
+      // FORM SUBMISSION
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        document.querySelector(".btn-kirim").classList.add("d-none");
+        document.querySelector(".btn-loading").classList.remove("d-none");
+
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            const nama = document.getElementById("nama").value;
+            const waLink = `https://api.whatsapp.com/send?phone=${waAdmin}&text=Halo Admin, saya ${nama} sudah mendaftar PPDB SMKN 1 Labang.`;
+
+            document.getElementById("form-content").classList.add("d-none");
+            const alertBox = document.querySelector(".my-alert");
+            alertBox.classList.remove("d-none");
+            alertBox.innerHTML = `
+                <h4 class="fw-bold text-success">Pendaftaran Berhasil!</h4>
+                <p>Silakan selesaikan tahap berkas & konfirmasi:</p>
+                <div class="d-grid gap-3">
+                    <a href="${googleFormURL}" target="_blank" class="btn btn-emas py-2 fw-bold pulse-effect">UPLOAD BERKAS</a>
+                    <a href="${waLink}" target="_blank" class="btn btn-success py-2 fw-bold">KONFIRMASI WHATSAPP</a>
+                </div>
+            `;
+          })
+          .catch((error) => alert("Error: Gagal mengirim data."));
+      });
+    </script>
+  </body>
+</html>

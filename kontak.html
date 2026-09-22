@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kontak - B A S C O</title>
+    <link rel="icon" href="img/logo basco 1.png" type="image/x-icon" />
+    <meta
+      name="description"
+      content="Hubungi BASCO - Bangkalan Specialty Coffee melalui WhatsApp, Email, atau kunjungi lokasi kami."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg-primary: #fdfbf7;
+        --bg-secondary: #f4ede2;
+        --text-main: #2c2520;
+        --text-muted: #6e645e;
+        --accent: #8c6239;
+        --accent-hover: #6f4e2c;
+        --white: #ffffff;
+        --shadow: 0 10px 30px rgba(140, 98, 57, 0.08);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-main);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* --- HEADER --- */
+      header {
+        background-color: rgba(253, 251, 247, 0.85);
+        backdrop-filter: blur(12px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(140, 98, 57, 0.08);
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+      .brand-title {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--accent);
+      }
+      .brand-sub {
+        font-size: 11px;
+        color: var(--text-muted);
+        letter-spacing: 1px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 32px;
+      }
+      nav ul a {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text-main);
+        text-decoration: none;
+        position: relative;
+        transition: var(--transition);
+      }
+      nav ul a:hover,
+      nav ul a.active {
+        color: var(--accent);
+      }
+      nav ul a.active::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--accent);
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: var(--text-main);
+      }
+
+      /* --- CONTACT CONTENT --- */
+      main {
+        padding-top: 140px;
+      }
+      .hero-section {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .hero-section h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 48px;
+        color: var(--text-main);
+        margin-bottom: 16px;
+      }
+      .hero-section p {
+        color: var(--text-muted);
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 80px;
+      }
+
+      .cta-card {
+        background: var(--white);
+        padding: 40px;
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(140, 98, 57, 0.04);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .cta-card h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+      .cta-card p {
+        margin-bottom: 30px;
+        color: var(--text-muted);
+      }
+
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .btn {
+        padding: 16px 28px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        text-align: center;
+        transition: var(--transition);
+      }
+      .btn-whatsapp {
+        background: #25d366;
+        color: white;
+      }
+      .btn-whatsapp:hover {
+        background: #1eb954;
+        transform: translateY(-3px);
+      }
+      .btn-email {
+        background: var(--accent);
+        color: white;
+      }
+      .btn-email:hover {
+        background: var(--accent-hover);
+        transform: translateY(-3px);
+      }
+
+      /* --- MAPS --- */
+      .map-container {
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        height: 450px;
+        border: 1px solid rgba(140, 98, 57, 0.04);
+      }
+
+      /* --- MOBILE NAVIGATION PANEL --- */
+      .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+        display: none;
+        justify-content: flex-end;
+      }
+      .mobile-nav .panel {
+        background: var(--bg-primary);
+        width: 280px;
+        height: 100%;
+        padding: 40px 24px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      }
+
+      footer {
+        padding: 60px 0;
+        border-top: 1px solid var(--bg-secondary);
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 14px;
+      }
+
+      /* --- ANIMATION --- */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.6s forwards;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 992px) {
+        .contact-wrapper {
+          grid-template-columns: 1fr;
+        }
+        .map-container {
+          height: 350px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .hero-section h1 {
+          font-size: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a href="index.html" class="brand">
+          <img src="img/logo basco 1.png" alt="Logo" style="width: 35px" />
+          <div>
+            <div class="brand-title">B A S C O</div>
+            <div class="brand-sub">#startwithBasco</div>
+          </div>
+        </a>
+
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="gallery.html">Galeri</a></li>
+            <li><a href="kontak.html" class="active">Kontak</a></li>
+          </ul>
+        </nav>
+
+        <button class="menu-toggle" onclick="openMobile()">☰</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero-section fade-up">
+        <br />
+        <br />
+        <br />
+        <h1>Hubungi Kami</h1>
+        <p>
+          Ada pertanyaan atau ingin reservasi tempat? Tim kami siap membantu
+          Anda dengan senang hati.
+        </p>
+      </section>
+
+      <div class="contact-wrapper">
+        <div class="cta-card fade-up">
+          <h2>Mari Berdiskusi</h2>
+          <p>
+            Email: <strong>basco12.indonesia@email.com</strong><br />
+            Alamat: Bangkalan, Madura, Jawa Timur.
+          </p>
+
+          <div class="btn-group">
+            <a
+              href="https://wa.me/6282232493114"
+              target="_blank"
+              class="btn btn-whatsapp"
+              >Chat via WhatsApp</a
+            >
+            <a href="mailto:basco12.indonesia@email.com" class="btn btn-email"
+              >Kirim Email Resmi</a
+            >
+          </div>
+        </div>
+
+        <div class="map-container fade-up" style="animation-delay: 0.2s">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.6967725449217!2d112.75744847518268!3d-7.044875469029842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd8059f8049bed9%3A0x55aa58daf862b1c2!2sBASCO%20COFFEE!5e0!3m2!1sid!2sid!4v1778830963346!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> Basco Coffee. All rights reserved.</p>
+    </footer>
+
+    <div class="mobile-nav" id="mobileNav" onclick="closeMobile()">
+      <div class="panel" onclick="event.stopPropagation()">
+        <nav style="display: block">
+          <ul
+            style="
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+            "
+          >
+            <li><a href="index.html" onclick="closeMobile()">Home</a></li>
+            <li><a href="menu.html" onclick="closeMobile()">Menu</a></li>
+            <li><a href="team.html" onclick="closeMobile()">Team</a></li>
+            <li><a href="gallery.html" onclick="closeMobile()">Galeri</a></li>
+            <li><a href="kontak.html" onclick="closeMobile()">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      function openMobile() {
+        document.getElementById("mobileNav").style.display = "flex";
+      }
+      function closeMobile() {
+        document.getElementById("mobileNav").style.display = "none";
+      }
+
+      window.onclick = function (event) {
+        const modal = document.getElementById("mobileNav");
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>
+>

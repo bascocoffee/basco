@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservasi Buka Puasa Bersama</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f4f7f6;
+        padding-top: 50px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      .header-box {
+        background: #2c5d63;
+        color: white;
+        padding: 20px;
+        border-radius: 20px 20px 0 0;
+        text-align: center;
+      }
+      .btn-primary {
+        background-color: #2c5d63;
+        border: none;
+        padding: 12px;
+        font-weight: bold;
+      }
+      .btn-primary:hover {
+        background-color: #1e4044;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <div class="card">
+            <div class="header-box">
+              <h3>🌙 Reservasi Bukber</h3>
+              <p class="mb-0">Isi data anda untuk Reservasi dan Pesan Menu</p>
+              <p class="mb-0">Minimal pemesanan 4 orang</p>
+            </div>
+            <div class="card-body p-4">
+              <form id="reservationForm">
+                <div class="mb-3">
+                  <label class="form-label">Nama Pemesan</label>
+                  <input
+                    type="text"
+                    id="nama"
+                    name="nama"
+                    class="form-control"
+                    placeholder="Nama Lengkap"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Nomor WhatsApp</label>
+                  <input
+                    type="tel"
+                    id="whatsapp"
+                    name="whatsapp"
+                    class="form-control"
+                    placeholder="0812xxxx"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Tanggal Pemesanan</label>
+                  <input
+                    type="date"
+                    id="tanggal"
+                    name="tanggal"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Pilihan Menu</label>
+                  <select id="paket" name="paket" class="form-select" required>
+                    <option value="" disabled selected>Pilih Paket</option>
+                    <option value="Paket Ber 5 Nasi Campur">
+                      Paket Berkah - Nasi Campur
+                    </option>
+                    <option value="Paket Ber 5 Penyetan Ayam">
+                      Paket Nikmat - Penyetan Ayam
+                    </option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Jumlah Total Pemesanan</label>
+                  <input
+                    type="number"
+                    id="jumlahpesanan"
+                    name="jumlahpesanan"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary w-100"
+                  id="submitBtn"
+                >
+                  Kirim Reservasi
+                </button>
+              </form>
+              <div
+                id="msg"
+                class="mt-3 text-center"
+                style="display: none"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbzA7Z7JcSTFpRaVbOhK2DU5_0ZLVkfoY9-Fpqh0B7nxmwgSpYmofOvj60L3ky0IALMh/exec"; // <-- GANTI DENGAN URL GOOGLE APPS SCRIPT ANDA
+      const adminWhatsApp = "6282140395057"; // <-- GANTI DENGAN NOMOR ADMIN (Gunakan format 62, bukan 0)
+
+      const form = document.getElementById("reservationForm");
+      const btn = document.getElementById("submitBtn");
+      const msg = document.getElementById("msg");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerText = "Sebentar ya, lagi di proses..";
+
+        // Ambil data dari form untuk WhatsApp
+        const nama = document.getElementById("nama").value;
+        const waUser = document.getElementById("whatsapp").value;
+        const tgl = document.getElementById("tanggal").value;
+        const paket = document.getElementById("paket").value;
+        const jumlahpesanan = document.getElementById("jumlahpesanan").value;
+
+        // 1. Kirim ke Google Spreadsheet
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            // 2. Jika sukses ke spreadsheet, arahkan ke WhatsApp Admin
+            const textWA = `Halo Admin, saya ingin konfirmasi Reservasi Bukber:%0A%0A*Nama:* ${nama}%0A*WA:* ${waUser}%0A*Tanggal:* ${tgl}%0A*Pilihan:* ${paket}%0A%0AMohon diproses, terima kasih!`;
+
+            window.open(
+              `https://api.whatsapp.com/send?phone=${adminWhatsApp}&text=${textWA}`,
+              "_blank",
+            );
+
+            btn.disabled = false;
+            btn.innerText = "Kirim Reservasi";
+            msg.style.display = "block";
+            msg.className = "alert alert-success";
+            msg.innerHTML = "Data tersimpan! Membuka WhatsApp...";
+            form.reset();
+          })
+          .catch((error) => {
+            btn.disabled = false;
+            btn.innerText = "Kirim Reservasi";
+            alert("Terjadi kesalahan saat menyimpan data.");
+            console.error("Error!", error.message);
+          });
+      });
+    </script>
+  </body>
+</html>

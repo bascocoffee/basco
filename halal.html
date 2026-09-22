@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>B A S C O</title>
+    <link rel="icon" href="img/logo basco 1.png" type="image/x-icon" />
+    <meta
+      name="description"
+      content="BASCO -Bangkalan Specialty Coffee."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="logo">
+            <img src="img/logo basco 1.png" alt="" style="width: 35px" />
+          </div>
+          <div>
+            <div
+              style="
+                font-size: 20px;
+                font-family: 'Times New Roman', Times, serif;
+              "
+            >
+              B A S C O
+            </div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 2px">
+              #startwithBasco
+            </div>
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="gallery.html">Galeri</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </nav>
+
+        <button
+          class="menu-toggle"
+          aria-label="buka menu"
+          onclick="openMobile()"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f5f5f5;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 30px 0 10px;
+        font-size: 2.5em;
+        color: #333;
+      }
+
+      p.sub {
+        font-size: 1.1em;
+        color: #666;
+        margin-bottom: 40px;
+      }
+
+      .team-container {
+        display: grid;
+        gap: 20px;
+        padding: 0 40px 60px;
+      }
+
+      .team-card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .team-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .team-card img {
+        width: 50%;
+        height: auto;
+      }
+    </style>
+
+    <h1>Halal Sertifikat</h1>
+    <div class="team-container">
+      <div class="team-card">
+        <img
+          src="img/SH PAK ANGGIE PRAMULYA TEGUH PRIBADI (PU BANGKALAN)_001.jpg"
+          alt="Anggota Tim 1"
+        />
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+
+    <!--Footer-->
+    <footer style="text-align: center">
+      <p>&copy; 2025 Basco Coffee. All rights reserved.</p>
+    </footer>
+
+    <!-- mobile nav overlay -->
+    <div class="mobile-nav" id="mobileNav" onclick="closeMobile()">
+      <div class="panel" onclick="event.stopPropagation()">
+        <nav>
+          <ul
+            style="
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+            "
+          >
+            <li><a href="index.html" onclick="closeMobile()">Home</a></li>
+            <li><a href="/menu/menu.html" onclick="closeMobile()">Menu</a></li>
+            <li><a href="team.html" onclick="closeMobile()">Team</a></li>
+            <li><a href="gallery.html" onclick="closeMobile()">Galeri</a></li>
+            <li><a href="kontak.html" onclick="closeMobile()">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <script>
+      // small helpers
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      function openMobile() {
+        document.getElementById("mobileNav").style.display = "flex";
+      }
+      function closeMobile() {
+        document.getElementById("mobileNav").style.display = "none";
+      }
+
+      function handleForm(e) {
+        e.preventDefault();
+        const f = e.target;
+        // fake submit — replace with your integration (email, API) later
+        alert(
+          "Terima kasih, " +
+            (f.name.value || "Teman") +
+            "! Pesan Anda telah dikirim."
+        );
+        f.reset();
+      }
+
+      // simple reveal for items with .fade-up
+      window.addEventListener("load", () => {
+        document.querySelectorAll(".fade-up").forEach((el, i) => {
+          el.style.animationDelay = i * 0.08 + "s";
+        });
+      });
+    </script>
+  </body>
+</html>

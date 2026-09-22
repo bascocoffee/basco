@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keluarga Basco</title>
+    <link rel="icon" href="img/logo basco 1.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --dark-coffee: #3c2a21;
+        --medium-coffee: #543a20;
+        --light-coffee: #74512d;
+        --creme: #f5ebe0;
+        --accent: #af8260;
+        --white: #ffffff;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .membership-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 40px;
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        width: 100%;
+        max-width: 400px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        text-align: center;
+      }
+
+      .logo-area {
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        color: var(--dark-coffee);
+        margin-bottom: 5px;
+      }
+
+      .sub-title {
+        color: var(--light-coffee);
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .form-group {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--medium-coffee);
+        margin-bottom: 8px;
+        margin-left: 4px;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px 18px;
+        border: 2px solid #e3d5ca;
+        border-radius: 12px;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        background: #fafafa;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: var(--accent);
+        background: var(--white);
+        box-shadow: 0 0 0 4px rgba(175, 130, 96, 0.1);
+      }
+
+      button {
+        width: 100%;
+        padding: 16px;
+        background-color: green;
+        color: var(--creme);
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+        letter-spacing: 0.5px;
+      }
+
+      button:hover {
+        background-color: var(--medium-coffee);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(60, 42, 33, 0.3);
+      }
+
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .footer-text {
+        margin-top: 25px;
+        font-size: 0.75rem;
+        color: #888;
+      }
+
+      /* Success Animation Message */
+      #status-message {
+        display: none;
+        margin-top: 20px;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="membership-card">
+      <div class="logo-area">Keluarga Basco</div>
+      <div>
+        <img
+          src="logo basco 1.png"
+          alt=""
+          style="justify-content: center; width: 50px; margin-top: 10px"
+        />
+      </div>
+      <div class="sub-title"></div>
+
+      <form id="membershipForm">
+        <div class="form-group">
+          <label>Nama Lengkap</label>
+          <input
+            type="text"
+            name="nama"
+            placeholder="Masukkan nama Anda"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Email Aktif</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="contoh@email.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Nomor WhatsApp</label>
+          <input type="tel" name="whatsapp" placeholder="0812xxxx" required />
+        </div>
+
+        <button type="submit" id="submitBtn">Kirim Sekarang</button>
+      </form>
+
+      <div id="status-message"></div>
+
+      <div class="footer-text">Nantikan Promo dan Free Merchandise dari BASCO Coffee.</div>
+    </div>
+
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbyye7rxrgOtLMcfTajrgAnPPCkI1CLfThIFDQtavs9nmBTyYCg158CHVoVdI7Pkjgl0/exec"; // GANTI DENGAN URL ANDA
+      const form = document.getElementById("membershipForm");
+      const btn = document.getElementById("submitBtn");
+      const statusMsg = document.getElementById("status-message");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerHTML = "Wait, lagi proses nih...";
+
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            statusMsg.style.display = "block";
+            statusMsg.style.backgroundColor = "#D4EDDA";
+            statusMsg.style.color = "#155724";
+            statusMsg.innerHTML = "Selamat Bergabung di Keluarga BASCO 🎉";
+            form.reset();
+            btn.innerHTML = "Kirim Sekarang";
+            btn.disabled = false;
+
+            // Sembunyikan pesan setelah 5 detik
+            setTimeout(() => {
+              statusMsg.style.display = "none";
+            }, 5000);
+          })
+          .catch((error) => {
+            statusMsg.style.display = "block";
+            statusMsg.style.backgroundColor = "#F8D7DA";
+            statusMsg.style.color = "#721C24";
+            statusMsg.innerHTML = "Maaf,yuk coba lagi";
+            btn.disabled = false;
+            btn.innerHTML = "Kirim Sekarang";
+          });
+      });
+    </script>
+  </body>
+</html>

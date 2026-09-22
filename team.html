@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Team - B A S C O</title>
+    <link rel="icon" href="img/logo basco 1.png" type="image/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg-primary: #fdfbf7;
+        --bg-secondary: #f4ede2;
+        --text-main: #2c2520;
+        --text-muted: #6e645e;
+        --accent: #8c6239;
+        --white: #ffffff;
+        --shadow: 0 10px 30px rgba(140, 98, 57, 0.06);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-main);
+      }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* --- HEADER & NAV (Identik dengan Index & Menu) --- */
+      header {
+        background-color: rgba(253, 251, 247, 0.85);
+        backdrop-filter: blur(12px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(140, 98, 57, 0.08);
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+      .brand-title {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--accent);
+      }
+      .brand-sub {
+        font-size: 11px;
+        color: var(--text-muted);
+        letter-spacing: 1px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 32px;
+      }
+      nav ul a {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text-main);
+        text-decoration: none;
+        position: relative;
+        transition: var(--transition);
+      }
+      nav ul a:hover,
+      nav ul a.active {
+        color: var(--accent);
+      }
+      nav ul a.active::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--accent);
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: var(--text-main);
+        cursor: pointer;
+      }
+
+      /* --- CONTENT --- */
+      main {
+        padding-top: 140px;
+        min-height: 80vh;
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .section-title h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 48px;
+        color: var(--text-main);
+        margin-bottom: 16px;
+      }
+      .section-title p {
+        color: var(--text-muted);
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 80px;
+      }
+      .team-card {
+        background: var(--white);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        border: 1px solid rgba(140, 98, 57, 0.04);
+        text-align: center;
+      }
+      .team-card:hover {
+        transform: translateY(-10px);
+      }
+      .team-card img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+      }
+      .team-info {
+        padding: 24px;
+      }
+      .team-info h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        color: var(--text-main);
+      }
+      .team-info p {
+        color: var(--accent);
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 5px;
+      }
+
+      /* --- MOBILE NAVIGATION PANEL --- */
+      .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+        display: none;
+        justify-content: flex-end;
+      }
+      .mobile-nav .panel {
+        background: var(--bg-primary);
+        width: 280px;
+        height: 100%;
+        padding: 40px 24px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      }
+
+      footer {
+        padding: 60px 0;
+        border-top: 1px solid var(--accent-light);
+        text-align: center;
+        color: var(--text-muted);
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .section-title h1 {
+          font-size: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a href="index.html" class="brand">
+          <img src="img/logo basco 1.png" alt="Logo" style="width: 35px" />
+          <div>
+            <div class="brand-title">B A S C O</div>
+            <div class="brand-sub">#startwithBasco</div>
+          </div>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="team.html" class="active">Team</a></li>
+            <li><a href="gallery.html">Galeri</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" onclick="openMobile()">☰</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <br />
+      <div class="section-title">
+        <br />
+        <br />
+        <br />
+        <h1>Tim Kami</h1>
+        <p>Kenali orang-orang hebat di balik setiap cangkir kopi kami.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="img/basco-bg.png" alt="Team" />
+          <div class="team-info">
+            <h3>Anggie Pram</h3>
+            <p>Founder</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="img/basco-bg.png" alt="Team" />
+          <div class="team-info">
+            <h3>Chandra Aris</h3>
+            <p>Management</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="img/hamdan.jpg" alt="Team" />
+          <div class="team-info">
+            <h3>Hamdan Achmad</h3>
+            <p>Head Bar</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="img/basco-bg.png" alt="Team" />
+          <div class="team-info">
+            <h3>Hendra Rio</h3>
+            <p>Media</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="img/nanta_team.jpg" alt="Team" />
+          <div class="team-info">
+            <h3>R. Nanta</h3>
+            <p>Barista</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="img/aan_team.jpg" alt="Team" />
+          <div class="team-info">
+            <h3>Maulidianto Aan</h3>
+            <p>Barista</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="img/basco-bg.png" alt="Team" />
+          <div class="team-info">
+            <h3>Rokhal</h3>
+            <p>Barista</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Basco Coffee. All rights reserved.</p>
+    </footer>
+
+    <div class="mobile-nav" id="mobileNav" onclick="closeMobile()">
+      <div class="panel" onclick="event.stopPropagation()">
+        <nav style="display: block">
+          <ul
+            style="
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+            "
+          >
+            <li><a href="index.html" onclick="closeMobile()">Home</a></li>
+            <li><a href="menu.html" onclick="closeMobile()">Menu</a></li>
+            <li><a href="team.html" onclick="closeMobile()">Team</a></li>
+            <li><a href="gallery.html" onclick="closeMobile()">Galeri</a></li>
+            <li><a href="kontak.html" onclick="closeMobile()">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <script>
+      function openMobile() {
+        document.getElementById("mobileNav").style.display = "flex";
+      }
+      function closeMobile() {
+        document.getElementById("mobileNav").style.display = "none";
+      }
+
+      // Menutup menu jika klik di luar panel
+      window.onclick = function (event) {
+        const modal = document.getElementById("mobileNav");
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>
+>

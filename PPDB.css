@@ -1,0 +1,72 @@
+body {
+  background: radial-gradient(circle at center, #003366, #001f3f);
+  min-height: 100vh;
+}
+.card-form {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  border-top: 10px solid #ffd700;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+.text-biru {
+  color: #001f3f;
+}
+.badge-emas {
+  background: #ffd700;
+  color: #001f3f;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.section-title {
+  background: #f8f9fa;
+  border-left: 4px solid #ffd700;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #001f3f;
+  margin-bottom: 1.5rem;
+}
+.btn-biru {
+  background: #001f3f;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+.btn-biru:hover {
+  background: #003366;
+  color: #ffd700;
+}
+.btn-emas {
+  background: #ffd700;
+  color: #001f3f;
+  border-radius: 10px;
+  border: none;
+}
+.btn-success {
+  background: #25d366;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+.alert-ppdb {
+  background: #eef7ff;
+  border: 2px dashed #001f3f;
+  border-radius: 15px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.pulse-effect {
+  animation: pulse 2s infinite;
+}

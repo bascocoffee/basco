@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal Shortcut Web</title>
+    <style>
+      /* CSS Reset dan Variabel Tema */
+      :root {
+        --bg-color: #f4f7f6;
+        --primary-color: #2b2b2b; /* Tema Industrial */
+        --accent-color: #27ae60; /* Sentuhan Nature/Green */
+        --text-color: #333;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      /* Container Utama */
+      .container {
+        background-color: var(--white);
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px; /* Lebar maksimal agar pas di HP */
+        padding: 30px;
+        overflow: hidden;
+      }
+
+      /* --- Bagian Login --- */
+      #login-section {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+
+      .header h2 {
+        color: var(--primary-color);
+        margin-bottom: 8px;
+      }
+
+      .header p {
+        font-size: 14px;
+        color: #666;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+      }
+
+      .form-group input:focus {
+        border-color: var(--accent-color);
+        outline: none;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 14px;
+        background-color: var(--accent-color);
+        color: var(--white);
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+      }
+
+      .btn:hover {
+        background-color: #219653;
+      }
+
+      /* --- Bagian Dashboard --- */
+      #dashboard-section {
+        display: none; /* Disembunyikan sebelum login */
+        flex-direction: column;
+      }
+
+      .dashboard-header {
+        text-align: center;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 2px solid var(--bg-color);
+      }
+
+      .dashboard-header h2 {
+        color: var(--primary-color);
+      }
+
+      .dashboard-header p {
+        font-size: 14px;
+        color: #666;
+        margin-top: 5px;
+      }
+
+      .shortcut-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* 1 kolom penuh di mobile */
+        gap: 16px;
+      }
+
+      /* Gaya Tombol Shortcut */
+      .shortcut-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        background-color: var(--primary-color);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        transition:
+          transform 0.2s,
+          background-color 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .shortcut-btn:hover {
+        transform: translateY(-2px); /* Efek tombol terangkat saat disentuh */
+        background-color: #1a1a1a;
+      }
+
+      .logout-btn {
+        background-color: #e74c3c;
+        margin-top: 24px;
+      }
+
+      .logout-btn:hover {
+        background-color: #c0392b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="login-section">
+        <div class="header">
+          <h2>Portal Basco Pro</h2>
+          <p>Silakan masuk ke sistem manajemen</p>
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Masukkan username Anda"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Masukkan password Anda"
+          />
+        </div>
+        <button class="btn" onclick="prosesLogin()">Masuk Dashboard</button>
+      </div>
+
+      <div id="dashboard-section">
+        <div class="dashboard-header">
+          <h2>Menu Shortcut</h2>
+          <p>Pilih tautan aplikasi di bawah ini</p>
+        </div>
+
+        <div class="shortcut-grid">
+          <a
+            href="https://www.appsheet.com/start/ff25271b-bc1d-475f-b2b5-38b8dc57c422?platform=desktop#appName=LaporanHarianBasco-901349824&vss=H4sIAAAAAAAAA62PywrCMBBFf0XuOl-QrQiKj43ixrgYmykE26QkqVpC_t3UB-JWXM69nMOdhIvh6zZSdYY8pM-15AESSWE3dKwgFabORu8aBaGwofYZrqhznuxkTt6QVcjIR_G2RA6Q6ReJ_McSAaPZRlMb9qNx5IvpRZd6ZEvwTSILtH2kU8OPFwqZc8lqV_WB9b7M-nlOWNjZrSOr104XcU1N4HwHukskBIMBAAA=&view=Laporan%20Harian"
+            class="shortcut-btn"
+            >Laporan Harian Basco</a
+          >
+          <a href="#" class="shortcut-btn">Monitoring Stock & Bahan Baku</a>
+          <a href="#" class="shortcut-btn">Database Member (QR Code)</a>
+          <a href="#" class="shortcut-btn">Manajemen Jadwal Staff</a>
+        </div>
+
+        <button class="btn logout-btn" onclick="prosesLogout()">Keluar</button>
+      </div>
+    </div>
+
+    <script>
+      // Simulasi logika perpindahan halaman
+      function prosesLogin() {
+        const user = document.getElementById("username").value;
+        const pass = document.getElementById("password").value;
+
+        // Validasi sederhana: pastikan kolom tidak kosong
+        if (user.trim() !== "" && pass.trim() !== "") {
+          document.getElementById("login-section").style.display = "none";
+          document.getElementById("dashboard-section").style.display = "flex";
+        } else {
+          alert("Harap isi Username dan Password terlebih dahulu!");
+        }
+      }
+
+      function prosesLogout() {
+        // Kosongkan kolom input dan kembalikan ke tampilan login
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("dashboard-section").style.display = "none";
+        document.getElementById("login-section").style.display = "flex";
+      }
+    </script>
+  </body>
+</html>
