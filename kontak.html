@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontak — Basco</title>
+  <meta name="description" content="Alamat, jam buka, dan kontak Basco Coffee Bangkalan." />
+  <link rel="icon" href="img/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="head"></div>
+
+  <main>
+    <section class="wrap page-top">
+      <div class="kontak">
+        <div>
+          <h1>Mampir ke Basco</h1>
+          <p class="lead">Ada pertanyaan, mau reservasi tempat, atau ingin bergabung di Basco Family? Tim kami siap membantu.</p>
+          <dl class="kartu-kontak">
+            <div><dt>Alamat</dt><dd>Jl. Halim Perdanakusuma No.40, Bangkalan, Madura, Jawa Timur</dd></div>
+            <div><dt>Jam buka</dt><dd>09.00 – 23.00</dd></div>
+            <div><dt>WhatsApp</dt><dd>0851 9697 6296</dd></div>
+            <div><dt>Email</dt><dd>basco12.indonesia@email.com</dd></div>
+          </dl>
+          <div class="row">
+            <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Chat WhatsApp</a>
+            <a class="btn ghost" id="mp" href="#" target="_blank" rel="noopener">Buka di peta</a>
+            <a class="btn ghost" id="em" href="#">Kirim email</a>
+          </div>
+        </div>
+        <div class="arch"><img src="img/p-taman.webp" alt="Teras taman Basco dengan tanaman rimbun" /></div>
+      </div>
+    </section>
+    <script>
+      /* tautan diisi dari INFO di js/site.js agar nomor dan alamat cukup diubah di satu tempat */
+      window.addEventListener("DOMContentLoaded", () => { document.getElementById("wa").href = WA; document.getElementById("mp").href = INFO.maps; document.getElementById("em").href = "mailto:" + INFO.email; });
+    </script>
+  </main>
+
+  <div id="foot"></div>
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>
