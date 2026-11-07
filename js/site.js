@@ -47,7 +47,7 @@ burger.addEventListener("click", () => {
 $("#foot").outerHTML = `
 <footer class="site-foot" id="foot">
   <div class="wrap cta">
-    <h2>Mampir, duduk dan istirahat dulu.</h2>
+    <h2>Mampir dan istirahat dulu.</h2>
     <div class="row">
       <a class="btn lime" href="${WA}" target="_blank" rel="noopener">Chat WhatsApp</a>
       <a class="btn line-light" href="${INFO.maps}" target="_blank" rel="noopener">Lihat lokasi</a>
